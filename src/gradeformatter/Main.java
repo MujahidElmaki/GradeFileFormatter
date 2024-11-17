@@ -1,7 +1,17 @@
 package gradeformatter;
 
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World....");
+        FileProcessor fileProcessor = new FileProcessor();
+        List<Student> students = fileProcessor.readStudents("NameFile.txt");
+
+        fileProcessor.readCourses("CourseFile.txt", students);
+        Collections.sort(students, Comparator.comparing(Student::getStudentId));
+        fileProcessor.writeOutput("FormattedOutput.txt", students);
+        System.out.println("Processing complete. Output written to FormattedOutput.txt");
     }
 }
