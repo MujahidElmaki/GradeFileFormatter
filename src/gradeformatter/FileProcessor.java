@@ -1,11 +1,11 @@
 package gradeformatter;
 
-import java.util.List;
-import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileProcessor {
     public List<Student> readStudents(String filePath) {
@@ -55,7 +55,7 @@ public class FileProcessor {
             for (Student student : students) {
                 for (Course course : student.getCourses()) {
                     writer.write(student.getStudentId() + "," + student.getName() + "," +
-                                 course.getCourseCode() + "," + 
+                                 course.getCourseCode() + ", " + 
                                  String.format("%.1f", course.calculateFinalGrade()) + "\n");
                 }
             }
